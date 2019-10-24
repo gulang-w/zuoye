@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #bon,#bon1{
+            border: none;
+            outline: none;
+            background: #ffffff;
+            box-shadow: 0 0 3px 1px gray;
+            color: #999;
+            cursor: pointer;
+            position: relative;
+            margin-left: 30px;
+        }
+        #box,#box1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: black;
+            text-align: center;
+            line-height: 100px;
+            display: none;
+            font-size: 16px;
+            float: left;
+            position: absolute;
+            top: 60px;
+            left: 80px;
+        }
+    </style>
+    <script type="text/javascript">
+        function SetStyle(bon,box) {
+            bon.onclick = function () {
+                bon.style.color="red";
+                bon.style.background="#333";
+                bon.style.border="1px solid #000";
+                box.style.display="block";
+            }
+        }
+
+        window.onload=function() {
+            var bon=document.getElementById('bon');
+            var bon1=document.getElementById('bon1');
+            var box=document.getElementById('box');
+            SetStyle(bon,box);
+            SetStyle(bon1,box1);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="点我有惊喜哦" id="bon">
+    <input type="button" value="美女" id="bon1">
+    <div id="box">我就是惊喜</div>
+    <div id="box1">哈哈哈</div>
+</body>
+</html>
