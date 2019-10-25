@@ -32,6 +32,7 @@
         }
     </style>
     <script type="text/javascript">
+    //定义函数，并为参数bon做点击事件
         function SetStyle(bon,box) {
             bon.onclick = function () {
                 bon.style.color="red";
@@ -40,8 +41,8 @@
                 box.style.display="block";
             }
         }
-
-        window.onload=function() {
+    //调用函数
+        window.onload=function() {    //事件在页面或者图像加载完成后立即发生
             var bon=document.getElementById('bon');
             var bon1=document.getElementById('bon1');
             var box=document.getElementById('box');

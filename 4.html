@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var bon = document.getElementById('bon');
+            var text = document.getElementById('text');
+            var box = document.getElementById('box');
+            bon.onclick = function() {
+                bon.style.background="red"
+                bon.innerHTML = "输出成功";
+                box.innerHTML = '<p>' + text.value + '</p>' + box.innerHTML;
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="bon">提交</button>
+    <input type="text" value="一条简单的语句" id="text">
+    <div id="box"></div>
+</body>
+</html>
