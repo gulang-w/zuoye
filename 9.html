@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var lis = document.getElementsByClassName('list');
+            lis[0].style.color="red";
+            console.dir(lis);
+            var col = document.getElementById('col');
+            var lis1 = col.getElementsByClassName('list');
+            lis1[0].style.color="yellow"
+            lis1[1].style.color="blue"
+            console.dir(lis1);
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul id="col">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="list">5</li>
+    </ul>
+</body>
+</html>

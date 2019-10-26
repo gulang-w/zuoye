@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            //getElementsByTagName 用于取得元素标签
+            var lis = document.getElementsByTagName('li');
+            console.dir(lis);    //console.dir() 可以显示一个对象的所有属性和方法
+            var col = document.getElementById('col');
+            var lis1 = col.getElementsByTagName('li');
+            console.dir(lis1);
+            for(var i = 0; i < lis.length; i++) {
+                if(i % 2 == 0) {
+                    lis[i].style.background = "red";
+                } else {
+                    lis[i].style.background = "blue"
+                }
+            }
+            for(var i = 0; i < lis1.length; i++) {
+                if(i % 2 == 0) {
+                    lis1[i].style.background = "gray";
+                } else {
+                    lis1[i].style.background = "sienna"
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <ul id="col">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

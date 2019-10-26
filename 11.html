@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var lis = document.querySelectorAll('.ids')
+            lis[0].style.background="blue";
+           
+            var col = document.getElementById('col');
+            var lis1 = col.querySelectorAll('li');
+            for(var i=0; i<lis1.length; i++) {
+                lis1[i].style.background="red";
+            }
+            var lis2 = document.querySelectorAll('.list');
+            lis2[0].style.background="#999";
+            for(var i=0; i<lis2.length; i++) {
+                lis2[i].style.background="#999";
+            }
+            var lis3 = document.querySelectorAll('.ids ul li');
+            lis3[lis3.length-1].style.background="yellow";
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="ids">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li class="list">4</li>
+        <li>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </li>
+    </ul>
+    <ul id="col">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="list">5</li>
+    </ul>
+</body>
+
+</html>

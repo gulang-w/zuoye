@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/javascript">
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var pro = document.getElementById('pro');
+            var val = document.getElementById('val');
+            var but = document.getElementById('but');
+            var box = document.getElementById('box');
+            but.onclick = function() {
+                var newPro = pro.value;
+                var newVel = val.value;
+                box.style[newPro] = newVel;
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input type="text" id="pro" value="" placeholder="请填写属性名">
+        <input type="text" id="val" value="" placeholder="请填写属性值">
+        <input type="button" id="but" value="submit">
+    </p>
+    <div id="box"></div>
+</body>
+</html>

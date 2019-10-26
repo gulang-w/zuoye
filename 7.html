@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/javascript">
+        .pr{
+            position: relative;
+            width: 250px;
+            /* height: 188px; */
+        }
+        #img{
+            width: 250px;
+            /* height: 250px; */
+        }
+        #prev,#next{
+            position: absolute;
+            top: 0;
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 22px;
+            color: #fff;
+            width: 50%;
+            height: 100%;
+        }
+        #prev{
+            left: 0;
+            text-align: left;
+        }
+        #next{
+            right: 0;
+            text-align: right;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var prev = document.getElementById('prev');
+            var next = document.getElementById('next');
+            var img = document.getElementById('img');
+            var tit = document.getElementById('tit');
+            var  titArr= ['图片1','图片2','图片3','图片4','图片5','图片6','图片7'];
+            var  imgArr= ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg'];
+            var n = 0;
+            prev.onclick = function() {
+                n--;
+                if(n<0){
+                    n = imgArr.length-1;
+                }
+                img.src = 'images/' + imgArr[n];
+                tit.innerHTML = titArr[n];
+                console.log(n);
+            }
+
+            next.onclick = function() {
+                n++;
+                if(n>imgArr.length-1){
+                    n = 0;
+                }
+                img.src = 'images/' + imgArr[n];
+                tit.innerHTML = titArr[n];
+                console.log(n);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="pr">
+        <input type="button" id="prev" name="prev" title="上一张" value="＜">
+        <input type="button" id="next" name="next" title="下一张" value="＞">
+        <img src="images/1.jpg" alt="" id="img">
+        
+    </div><p id="tit">图片1</p>
+</body>
+</html>

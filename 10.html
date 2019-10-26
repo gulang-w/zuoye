@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            //querySelector 通过css选择器，取得第一个元素
+            var lis = document.querySelector('#col li:nth-child(4)');
+            lis.style.background="red";
+            var lis1 = document.querySelector('.ids');
+            lis1.style.background="black";
+            lis1.style.color="#fff";
+            var lis2 = document.querySelector('.list');
+            lis2.style.background="yellow";
+        }
+    </script>
+</head>
+
+<body>
+    <ul class="ids">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li class="list">4</li>
+        <li>5</li>
+    </ul>
+    <ul id="col">
+        <li>1</li>
+        <li class="list">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="list">5</li>
+    </ul>
+</body>
+
+</html>
