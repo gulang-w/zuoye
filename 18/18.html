@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="" id="link" type="text/css">
+    <script type="text/javascript">
+         function skin_blue(){
+	            link.href='style-blue.css';
+	        }
+
+	        function skin_red(){
+	            link.href='style-red.css';
+	        }
+
+            function skin_img(){
+	            link.href='style-img.css';
+	        }
+            window.onload=function(){
+			var blue=document.getElementById('blue');
+			var red=document.getElementById('red');
+            var img=document.getElementById('img');
+			var link=document.getElementById('link');
+            // //点击换肤
+            // blue.onclick = function() {
+            //     skin_blue();
+            // }
+            // red.onclick = function() {
+            //     skin_red();
+            // }
+            //鼠标移上去换肤
+            blue.onmouseover=function(){
+            	skin_blue();
+            }
+
+            red.onmouseout=function(){
+            	skin_red();
+            }
+
+            img.onmouseout=function(){
+            	skin_img();
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="blue" value="蓝">
+    <input type="button" id="red" value="红">
+    <input type="button" id="img" value="图">
+    <div class="div"></div>
+</body>
+
+</html>

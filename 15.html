@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var lis = document.querySelectorAll('li');
+            // var colorArr = ['red','orange','yellow','green','blue','indigo','violet']
+            console.log(lis);
+            for(var i = 0; i<=lis.length; i++) {
+                 lis[0].onclick = function() {
+                    this.style.background="red";
+                //     console.log(i);
+                //     // this.style.background = 'red';
+                //     // this.style.color = '#fff';
+                //     alert(this);
+                }
+                lis[1].onclick = function() {
+                    this.style.background="orange";
+                }
+                lis[2].onclick = function() {
+                    this.style.background="yellow";
+                }
+                lis[3].onclick = function() {
+                    this.style.background="green";
+                }
+                lis[4].onclick = function() {
+                    this.style.background="blue";
+                }
+                lis[5].onclick = function() {
+                    this.style.background="indigo";
+                }
+                lis[6].onclick = function() {
+                    this.style.background="violet";
+                }
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>红</li>
+        <li>橙</li>
+        <li>黄</li>
+        <li>绿</li>
+        <li>蓝</li>
+        <li>靛</li>
+        <li>紫</li>
+    </ul>
+</body>
+</html>

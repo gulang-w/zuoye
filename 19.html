@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div{
+            background: red;
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            var div = document.getElementById('div');
+            function show() {
+                btn.value = '隐藏';
+                div.style.display='block';
+            }
+            function hide() {
+                btn.value = '显示';
+                div.style.display = 'none';
+            }
+            btn.onclick = function() {
+                if(div.style.display=='none') {
+                    show();
+                } else {
+                    hide();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="显示"> 
+    <div id="div" style="display: none">hello</div>
+</body>
+</html>
