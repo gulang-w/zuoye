@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var str = "123455667834765683745";
+        var num = "5";
+        var reg = new RegExp(num,'g')
+        var result = str.match(reg);
+        var count = !result ? 0 : result.length;
+        console.log(num + "的数量为" + count);
+    </script>
+</body>
+</html>

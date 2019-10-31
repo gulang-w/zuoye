@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width: 300px;
+            margin: 100px auto;
+            border: 1px solid #333;
+        }
+        #tab input{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #333;
+            width: 25%;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            cursor: pointer;
+        }
+        #tab input.active{
+            background: #fff;
+            color: black;
+            border-bottom: none;
+            font-weight: bold;
+        }
+        ul{
+            width: 100%;
+            height: 300px;
+            list-style-type: none;
+            font-size: 12px;
+            color: #222;
+            display: none;
+            padding-top: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var tab = document.getElementById('tab');
+            var inputs = tab.getElementsByTagName('input');
+            var lis = tab.getElementsByTagName('ul');
+            console.log(inputs.length);
+            for(i = 0; i<inputs.length; i++) {
+                inputs[i].index = i;
+                inputs[i].onclick = function() {
+                    for (var j = 0 ; j < inputs.length ; j++) {
+                            inputs[j].className='';
+                            lis[j].style.display='none';
+                     }
+                    this.className='active';
+                    lis[this.index].style.display = 'block';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="tab">
+        <input type="button" value="新闻">
+        <input type="button" value="图片">
+        <input type="button" value="出国">
+        <input type="button" value="招生">
+        <ul style="display: block;">
+            <li>新闻</li>
+        </ul>
+        <ul>
+            <li>图片</li>
+        </ul>
+        <ul>
+            <li>出国</li>
+        </ul>
+        <ul>
+            <li>招生</li>
+        </ul>
+    </div>
+</body>
+</html>

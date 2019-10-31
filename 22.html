@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            background: black;
+            width: 100px;
+            height: 100px;
+        }
+        .sty{
+            border: 5px solid red;
+            color: #fff;
+            line-height: 100px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+        function change(value) {
+            var box = document.getElementById('box');
+            box.className = value;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="边框" onclick="change('sty')">
+    <div id="box">hello</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var all = document.getElementById('all');
+            var cancel = document.getElementById('cancel');
+            var invert = document.getElementById('invert');
+            var form = document.getElementById('form');
+            var inputs = document.getElementsByTagName('input');
+
+            all.onclick = function() {
+                for(var i = 0; i<inputs.length; i++) {
+                    inputs[i].checked = true;
+                }
+            }
+
+            cancel.onclick = function() {
+                for(var i = 0; i<inputs.length; i++) {
+                    inputs[i].checked = false;
+                }
+            }
+
+            invert.onclick = function() {
+                for(var i = 0; i<inputs.length; i++) {
+                    if(inputs[i].checked == true) {
+                        inputs[i].checked = false;
+                    } else {
+                        inputs[i].checked = true;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="all">全选</button>
+    <button id="cancel">取消</button>
+    <button id="invert">反选</button>
+    <form id="form">
+        <input type="checkbox" value="1">
+        <input type="checkbox" value="2">
+        <input type="checkbox" value="3">
+        <input type="checkbox" value="4">
+        <input type="checkbox" value="5">
+    </form>
+</body>
+</html>

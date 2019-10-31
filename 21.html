@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            background: black;
+        }
+    </style>
+    <script type="text/javascript">
+        function colorChange(name,value) {
+            var div = document.getElementById('div');
+            div.style[name]=value;
+        }
+    </script>
 </head>
 <body>
-    
+    <input type="button" value="宽" onclick="colorChange('width','200px')">
+    <input type="button" value="高" onclick="colorChange('height','200px')">
+    <input type="button" value="颜色" onclick="colorChange('background','green')">
+    <input type="button" value="字体" onclick="colorChange('color','#fff')">
+    <div id="div">hello</div>
 </body>
 </html>

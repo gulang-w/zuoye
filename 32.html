@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div {
+            width: 300px;
+            height: 100px;
+            background-color: red;
+            border: 5px solid #000;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var div = document.getElementById('div');
+            console.log(div);
+            // console.log(div.currentStyle.widht);
+            //currentStyle 返回所有样式声明（包括内部、外部、内联）按css层叠规则作用于元素的最终样式。只有IE和Opera支持使用
+
+            //兼容chrome FF写法
+            // getComputedStyle(obj,null)
+            //第二个参数完全不起作用，可以随意填入
+            // alert(getComputedStyle(div,true).width);
+            console.log(getComputedStyle(div, true).width);
+
+            //同时兼容两种方式的写法
+            if(div.currentStyle) {
+                console.log(div.currentStyle['background-color']);
+            } else {
+                alert(getComputedStyle(div,true).height);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div"></div>
+</body>
+
+</html>

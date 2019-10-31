@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{ 
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #all{
+            width: 300px;
+            background: #999;
+            margin: 50px auto;
+        }
+        #mon ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        #mon ul li{
+            width: 70px;
+            height: 70px;
+            margin: 10px;
+            background: #ddd;
+            color: #999;
+            font-weight: bold;
+            border: 5px solid #666;
+            cursor: pointer;
+            text-align: center;
+        }
+        #mon  ul li h4{
+            margin-top: 13px;
+        }
+        #mon  ul li p{
+            margin-top: 5px;
+        }
+        #mon  ul .active{
+            background: black;
+            color: #fff;
+        }
+        #txt{
+            width: 100%;
+            height: 100px;
+            background: #ddd;
+        }
+        #txt h2{
+            height: 45px;
+            line-height: 45px;
+            font-size: 16px;
+            padding: 0 5px;
+        }
+        #txt p{
+            font-size: 13px;
+            padding: 0 5px;
+        }
+    </style>
+    <script type="text/javascript">
+       window.onload=function(){
+     	 	 var news=[
+                 '不忘初心 牢记使命 永远奋斗',
+                 '李克强会见俄罗斯总理张德江主持人大常委会议',
+                 '全国政协常委会举行全体会议 俞正声出席',
+                 '张高丽、汪洋、刘延东接受俄罗斯“友谊”勋章',
+                 '学习贯彻十九大  汪洋会见斯里兰卡外长',
+                 '肖捷任国务院副秘书长 陈晓东任外交部部长助理',
+                 '四名中央书记处书记先后以新职务亮相',
+                 '当前最重要的政治任务，王沪宁提了7个讲清楚',
+                 '程坚接替方向出任火箭军政治工作部主任',
+                 '《榜样·党员》之《用爱延续生命》',
+                 '老外看中国 | 澳韩学者：新理念将推动中国继续前行',
+                 '油价迎年内第7次上调！明起，每升油涨7分！'
+     	 	 ];
+             var all = document.getElementById('all');
+             var lis = all.getElementsByTagName('li');
+             var txt = document.getElementById('txt');
+             var prev = lis[0];
+             for(var i = 0; i<lis.length; i++) {
+                    lis[i].index = i;
+                    lis[i].onmouseover = function() {
+                        prev.className = '';
+                        this.className = 'active';
+                        prev = this;
+                        for(var j = 0; j<lis.length; j++) {
+                            txt.innerHTML='<h2>'+(this.index+1)+'月新闻学习</h2><p>'+news[this.index]+'</p>';
+                        }
+                    }
+             }            
+               
+     	 }
+    </script>
+</head>
+<body>
+    <div id="all">
+        <div id="mon">
+            <ul>
+                <li class="active"> 
+                    <h4>1</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>2</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>3</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>4</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>5</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>6</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>7</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>8</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>9</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>10</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>11</h4>
+                    <p>月</p>
+                </li>
+                <li>
+                    <h4>12</h4>
+                    <p>月</p>
+                </li>
+            </ul>
+        </div>
+        <div id="txt">
+            <h2>1月学习新闻</h2>
+            <p>不忘初心，牢记使命，永远奋斗</p>
+        </div>
+    </div>
+</body>
+</html>
