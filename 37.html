@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #333;
+        }
+
+        #box {
+            width: 500px;
+            margin: 100px auto;
+            font-size: 36px;
+            color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            function zero(n) {
+                if (n < 10) {
+                    return '0' + n;
+                } else {
+                    return '' + n;
+                }
+            }
+ var box = document.getElementById('box');
+            function sTime() {
+               
+                var tim = new Date();
+                var getsYear = tim.getFullYear(),
+                    getsMonth = zero(tim.getMonth() +1),
+                    getsDate = zero(tim.getDate()),
+                    getsHous = zero(tim.getHours()),
+                    getsMinutes = zero(tim.getMinutes()),
+                    getsSeconds = zero(tim.getSeconds()),
+                    getsDay = tim.getDay();
+                box.innerHTML = '<span>' + getsYear + '-</span><span>' + getsMonth + '-</span><span>' + getsDate +
+                     '   </span><span>' + getsHous + '</span><b>' + ':' + '</b><span>' + getsMinutes + '</span><b>' +
+                              ':' +  '</b><span>' + getsSeconds + '</span><span>' +' ' + '星期' + ' ' + getsDay + '</span>';
+            }
+            setInterval(sTime,1000);
+            sTime();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+            <span>0</span>
+            <span>0</span>
+            <b>:</b>
+            <span>0</span>
+            <span>0</span>
+            <b>:</b>
+            <span>0</span>
+            <span>0</span>
+    </div>
+</body>
+
+</html>

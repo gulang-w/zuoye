@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var sta = document.getElementById('sta');
+            var sto = document.getElementById('sto');
+            var box = document.getElementById('box');
+            var sTime = null;
+            var i = 1;
+            sta.onclick = function() {
+                box.style['font-size'] = '36px';
+                box.style['color'] = 'red';
+                //setInterval() 间隔型，设置间隔时间，无限次循环
+                //setTimeout() 延时器，间隔多少时间之后执行这个函数
+                sTime = setInterval(function() {
+                    box.innerHTML = i++;
+                } , 1000)
+            };
+            sto.onclick = function() {
+                clearInterval(sTime);
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="sta">开始</button>
+    <button id="sto">停止</button>
+    <div id="box"></div>
+</body>
+</html>

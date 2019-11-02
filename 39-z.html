@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 900px;
+            height: 150px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #left,#right{
+            z-index: 9;
+            position: absolute;
+            top: 0;
+        }
+        #right{
+            right: 0;
+        }
+        ul{
+            list-style-type: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        li{
+            float: left;
+        }
+        li img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var ul = box.getElementsByTagName('ul')[0];
+            var lis = box.getElementsByTagName('li');
+            var inputs = document.getElementsByTagName('input');
+            console.log(lis.length);
+             //设置一个默认的时间关闭
+             var closeTimer = null;
+             //复制一个ul，使得图片可以实现无缝连接的循环
+            ul.innerHTML = ul.innerHTML + ul.innerHTML;
+            //动态得到ul的长度，可以使用offsetWidth
+            ul.style.width = lis[0].offsetWidth*lis.length + "px";
+            //为了实现无缝连接，需要在ul运行到一半时把left重置为零，这个动作在瞬间完成
+            function imgshow(){
+                //只是为了可以在控制台看到效果
+                console.log(ul.offsetLeft + "<" + -ul.offsetWidth/2);
+                //向左移动
+                //判断在整个ul运行到一半的时候把left重置为零
+                if(ul.offsetLeft<-ul.offsetWidth/2) {
+                    ul.style.left = '0';
+                };
+                //向右移动
+                //判断在整个ul运行到一半的时候把left重置为整个ul的一半
+                if (ul.offsetLeft>0) {
+                ul.style.left=-ul.offsetWidth/2+'px';
+             }
+                //让整个ul的left每间隔30毫秒向左减少2px
+                ul.style.left = ul.offsetLeft + offset + 'px';
+            };
+            //开启定时器 完成图片滚动效果
+            closeTimer = setInterval(imgshow,30);
+            //设置当鼠标移入的时候停止滚动效果，就是停止定时的运行
+            box.onmouseover = function() {
+                clearInterval(closeTimer);
+            }
+            //设置当鼠标移出的时候滚动效果继续，就是定时器继续运行
+            box.onmouseout=function() {
+                closeTimer=setInterval(imgshow,30);
+            }
+            //左按钮的点击事件，ul向左移动
+            inputs[0].onclick = function() {
+                offset = -2;
+            }
+            //右按钮的点击事件，ul向右移动
+            inputs[1].onclick = function() {
+                offset = 2;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="button" id="left" value="向左">
+        <input type="button" id="right" value="向右">
+        <ul>
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.jpg" alt=""></li>
+            <li><img src="images/3.jpg" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+            <li><img src="images/7.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

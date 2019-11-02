@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            margin: 100px auto;
+            font-size: 36px;
+            color: #333;
+        }
+        img{
+            width: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+        function zero(a) {
+            if (a < 10) {
+                return '0' + a;
+            } else {
+                return '' + a;
+            }
+        }
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var imgs = document.getElementsByTagName('img');
+            function tim() {
+                var news = new Date();
+                var getHours = news.getHours();
+                var getMinutes = news.getMinutes();
+                var getSeconds = news.getSeconds();
+                var all = zero(getHours) + zero(getMinutes) + zero(getSeconds)
+                for(var i = 0; i<imgs.length; i++) {
+                    imgs[i].src = 'images/' + all.charAt(i) + '_002.png';
+                }
+            }
+            setInterval(tim,1000)
+            tim();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <img src="images/0_002.png" alt="">
+        <img src="images/0_002.png" alt="">
+        :
+        <img src="images/0_002.png" alt="">
+        <img src="images/0_002.png" alt="">
+        :
+        <img src="images/0_002.png" alt="">
+        <img src="images/0_002.png" alt="">
+    </div>
+</body>
+
+</html>

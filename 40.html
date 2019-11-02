@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li{
+            list-style: none;
+            height: 30px;
+            line-height: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: #222;
+            margin-left: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            // var lis = document.getElementsByTagName('li');
+            // for(var i = 0; i<lis.length; i++) {
+            //     lis[i].style.background = 'red';
+            // }
+
+            //子节点操作
+            var ul = document.getElementById('box');
+            console.log(ul.children.length);
+            for(var i = 0; i<ul.children.length; i++) {
+                ul.children[i].style.background = 'red';
+            }
+
+            //parentNode父节点
+            var a = document.getElementsByTagName('a');
+            console.log(a[0]);
+            console.log(a[0].parentNode);
+            for(var j = 0; j<a.length; j++) {
+                a[j].onclick = function() {
+                    this.parentNode.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="box">
+        <li>A<a href="javacsript:">隐藏</a></li>
+        <li>B<a href="javacsript:">隐藏</a></li>
+        <li>C<a href="javacsript:">隐藏</a></li>
+        <li>D<a href="javacsript:">隐藏</a></li>
+        <li>E<a href="javacsript:">隐藏</a></li>
+        <li>F<a href="javacsript:">隐藏</a></li>
+    </ul>
+</body>
+</html>

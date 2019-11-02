@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-right: 20px;
+        }
+        #txt{
+            width: 400px;
+            height: 200px; 
+            background: blue;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var txt = document.getElementById('txt');
+            var closeTime = null;
+            //鼠标移入时
+            box.onmouseover=txt.onmouseover = function() {
+               clearTimeout(closeTime) ;          //清除setTimeout()方法设置的定时操作
+                txt.style.display = 'block';
+            }
+            //鼠标移出时
+            box.onmouseout=txt.onmouseout = function() {
+                closeTime = setTimeout(function() {    //设置定时任务
+                    txt.style.display = 'none'
+                },2000)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="txt"></div>
+</body>
+</html>
