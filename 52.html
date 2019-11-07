@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+        }
+
+        td {
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        tr {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var name = document.getElementById('name');
+            var age = document.getElementById('age');
+            var btn = document.getElementById('btn');
+            var table = document.getElementById('table')
+            var os = document.getElementsByTagName('a');
+            //将表格中tbody行数赋值给n
+            var n = table.tBodies[0].rows.length + 1;
+
+            btn.onclick = function () {
+                //插入tr
+                var tr = document.createElement('tr');
+                //插入td
+                var td = document.createElement('td');
+                //
+                td.innerHTML = n++;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = name.value;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = age.value;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = '<a href="javascript:;">删除</a>';
+                tr.appendChild(td);
+
+                var as = td.getElementsByTagName('a');
+                for (var j = 0; j < as.length; j++) {
+                    as[j].onclick = function () {
+                        //parentNode父节点
+                        console.log(j+"<"+as.length);
+                        table.tBodies[0].removeChild(this.parentNode.parentNode);
+                    }
+                }
+                table.tBodies[0].appendChild(tr);
+            }
+            for (var i = 0; i < os.length; i++) {
+                os[i].onclick = function () {
+                    table.tBodies[0].removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    姓名：<input type="text" id="name">
+    年龄：<input type="text" id="age">
+    <input type="button" id="btn" value="添加">
+    <table id="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>23</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>45</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>34</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>赵六</td>
+                <td>35</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>宋七</td>
+                <td>24</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>周八</td>
+                <td>26</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

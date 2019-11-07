@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            width: 500px;
+        }
+        td{
+            border: 1px solid #333;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var table = document.getElementById('table');
+            //tBodies[0]指第一个tbody分组对象
+            //rows[1]第二行
+            //cells 集合返回表格中所有 <td> 或 <th> 元素
+            // alert(table.tBodies[0].rows[1].cells[1].innerHTML);
+            
+            var col = "";
+            for(var i = 0; i<table.tBodies[0].rows.length; i++) {
+                //隔行颜色
+                if(i % 2 == 0) {
+                    table.tBodies[0].rows[i].style.background = "#f5f5f5"
+                } else {
+                    table.tBodies[0].rows[i].style.background = "#ddd"
+                }
+                //鼠标移入
+                table.tBodies[0].rows[i].onmouseover = function() {
+                    // table.tBodies[0].rows[i].style.background = "red"
+                    //保留这次的颜色
+                    col = this.style.background;
+                    this.style.background = "red"
+                }
+                //鼠标移出
+                table.tBodies[0].rows[i].onmouseout = function() {
+                    //将变化之前的颜色赋予
+                    this.style.background = col;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>45</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>34</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>赵六</td>
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>宋七</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>周八</td>
+                <td>26</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

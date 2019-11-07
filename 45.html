@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+            margin: 5px;
+            padding: 5px;
+            font-size: 14px;
+            color: #fff;
+            background: red;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            //createElement(标签名) 创建一个节点
+		    //appendChild(节点)     追加一个节点
+
+            //创建DOM元素
+            var txt = document.getElementById('txt');
+            var btn  = document.getElementById('btn');
+            var box = document.getElementById('box');
+            btn.onclick = function () {
+                //创建一个li节点
+                var li = document.createElement('li');
+                var lis = box.getElementsByTagName('li');
+                //li里面的内容
+                li.innerHTML = txt.value;
+                //将li存入指定的父类
+               if(lis.length>0) {
+                   box.insertBefore(li,lis[0])
+               } else {
+                box.appendChild(li);
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt" value="">
+    <input type="button" id="btn" value="创建节点">
+    <ul id="box">
+
+    </ul>
+</body>
+</html>

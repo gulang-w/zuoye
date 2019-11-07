@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #ol1{
+            background: yellow;
+        }
+        #ol2{
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var ol1 = document.getElementById('ol1');
+            var ol2 = document.getElementById('ol2');
+            var btn = document.getElementById('btn');
+            btn.onclick = function() {
+                //把ol1的子节点的第一个保存在Li中
+                var li = ol1.children[0];
+                //把Li插入ol2中
+                //appendChild() 方法可向节点的子节点列表的末尾添加新的子节点
+                ol2.appendChild(li);
+            }
+        }
+    </script>
+</head>
+<body>
+    <ol id="ol1">
+        <li>adf</li>
+        <li>23</li>
+        <li>gh</li>
+        <li>67</li>
+        <li>45</li>
+    </ol>
+    <input type="button" id="btn" value="移动">
+    <ol id="ol2">
+       
+    </ol>
+</body>
+</html>

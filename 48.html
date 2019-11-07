@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a{
+            margin: 0 15px;
+        }
+        li{
+            margin: 5px 0;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+
+            var reg = document.getElementById('reg');
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+
+            btn.onclick = function () {
+                //创建子节点
+                var li = document.createElement('li');
+                var lis = document.getElementsByTagName('li');
+                //添加内容
+                li.innerHTML = '<input type="text" value=""> <a href="javascript:;">删除</a>';
+                //判断子节点是否为空
+                if(lis>0) {
+                    //insertBefore() 在已有的子节点前插入一个新的子节点
+                    box.insertBefore(li,lis)
+                } else {
+                    //appendChild() 可以向节点的子节点列表末尾添加新的子节点
+                    box.appendChild(li)
+                }
+                //为a元素添加删除功能
+                var as = document.getElementsByTagName('a');
+                for(var j = 0; j<as.length; j++) {
+                    as[j].onclick = function() {
+                        //parentNode父节点
+                        box.removeChild(this.parentNode)
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="reg">
+        <input type="button" id="btn" value="插入一行">
+        
+        <ul id="box">
+
+        </ul>
+    </form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width:  200px;
+            height: 200px;
+            background: gray;
+            position: relative;
+        }
+        #text{
+            width: 80px;
+            height: 80px;
+            background: red;
+            position: absolute;
+            bottom: 0;
+            right:  0;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var div = document.getElementById('text');
+            //offsetParent() 方法返回第一个被定位的父元素
+            //与当前元素最近的经过定位(position不等于static)的父级元素
+            alert(div.offsetParent);
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="text"></div>
+    </div>
+</body>
+</html>

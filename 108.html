@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    //构造函数
+        function Person(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+        //原型
+        Person.prototype.showName = function() {
+            alert(this.name);
+        }
+        Person.prototype.showAge = function() {
+            alert(this.age);
+        }
+        //实例
+        var obj = new Person('zhongguo',70);
+        var obj2 = new Person('xiaoming',12);
+
+        obj.showName();
+        obj.showAge();
+
+        obj2.showName();
+        obj2.showAge();
+
+        alert( obj.showName() == obj2.showName())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

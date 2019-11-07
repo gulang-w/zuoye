@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #ol1{
+            background: rgb(68, 68, 212);
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var ol1 = document.getElementById('ol1');
+            var btn = document.getElementById('btn');
+            //排序
+            btn.onclick = function() {
+                var arr = [];
+                for(var i = 0; i<ol1.children.length; i++) {
+                    //把每个li放在数组中,对数组进行操作比较方便
+                    arr[i] = ol1.children[i]
+                }
+                //对数组排序的方法
+                arr.sort(function(li1,li2) {
+                    var n1 = parseInt(li1.innerHTML);
+                    var n2 = parseInt(li2.innerHTML)
+                    return n1-n2;
+                })
+                
+                //把数组中排序出来的每一项放进ol1中
+                for(var j = 0; j<arr.length; j++) {
+                    console.log(arr[j].innerHTML)
+                    alert('这次应该把' + arr[j].innerHTML + '放在最后')
+                    ol1.appendChild(arr[j]);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="排序">
+    <ul id="ol1">
+        <li>7</li>
+        <li>2</li>
+        <li>5</li>
+        <li>8</li>
+        <li>0</li>
+    </ul>
+ 
+</body>
+</html>

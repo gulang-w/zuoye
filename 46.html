@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 5px;
+            padding: 5px;
+            font-size: 14px;
+            color: #fff;
+            background: red;
+            float: left;
+        }
+    </style>
+    <script type="text/javascript">
+        //removeChild删除子节点
+        window.onload = function () {
+            var box = document.getElementById('box');
+            var lis = box.getElementsByTagName('li');
+            var as = box.getElementsByTagName('a')
+            // console.log(lis)
+            for(var i = 0; i<as.length; i++) {
+                as[i].onclick = function() {
+                    //parentNode 属性可返回某节点的父节点。
+                    box.removeChild(this.parentNode);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="box">
+        <li>a<a href="javascript:">删除</a></li>
+        <li>b<a href="javascript:">删除</a></li>
+        <li>c<a href="javascript:">删除</a></li>
+        <li>d<a href="javascript:">删除</a></li>
+        <li>e<a href="javascript:">删除</a></li>
+        <li>f<a href="javascript:">删除</a></li>
+    </ul>
+</body>
+
+</html>

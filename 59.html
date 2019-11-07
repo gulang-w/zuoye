@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            width: 550px;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #333;
+            text-align: center;
+            color: #333;
+        }
+
+        tr {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var name = document.getElementById('name');
+            var age = document.getElementById('age');
+            var btn = document.getElementById('btn');
+            var table = document.getElementById('table')
+            var os = document.getElementsByTagName('a');
+            //将表格中tbody行数赋值给n
+            var n = table.tBodies[0].rows.length + 1;
+
+            btn.onclick = function () {
+                //插入tr
+                var tr = document.createElement('tr');
+                //插入td
+                var td = document.createElement('td');
+                //
+                td.innerHTML = n++;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = name.value;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = age.value;
+                tr.appendChild(td);
+
+                var td = document.createElement('td');
+                td.innerHTML = '<a href="javascript:;">删除</a>';
+                tr.appendChild(td);
+
+                var as = td.getElementsByTagName('a');
+                for (var j = 0; j < as.length; j++) {
+                    as[j].onclick = function () {
+                        //parentNode父节点
+                        console.log(j + "<" + as.length);
+                        table.tBodies[0].removeChild(this.parentNode.parentNode);
+                    }
+                }
+                table.tBodies[0].appendChild(tr);
+            }
+            for (var i = 0; i < os.length; i++) {
+                os[i].onclick = function () {
+                    table.tBodies[0].removeChild(this.parentNode.parentNode);
+                }
+            }
+
+            //搜索
+            var search = document.getElementById('search');
+            search.onclick = function () {
+                for (var z = 0; z < table.tBodies[0].rows.length; z++) {
+
+                    //toLowerCase 英文强制转小写
+                    //搜索的时候用于忽略大小写
+                    var sTr = table.tBodies[0].rows[z].cells[1].innerHTML.toLowerCase();
+                    var sVl = name.value.toLowerCase();
+                    //做一个判断，关键字不为空
+                    var error = document.getElementById('error');
+                    if (sVl == "") {
+                        error.style.display = "block";
+                        error.innerHTML = "关键字不能为空"
+                    } else {
+                        error.style.display = "none";
+                        error.innerHTML = ""
+                    }
+
+                    //search 模糊搜索  找到并且返回字符串出现的位置
+                    //如果没有找到返回-1
+
+                    //split 多关键字搜索
+                    //切分字符串
+
+                    //将输入的字符串切分
+                    var aVl = sVl.split('');
+                    console.log(aVl)
+                    //让查询完之后的背景消失
+                    table.tBodies[0].rows[z].style.background = '';
+                    for (var j = 0; j < aVl.length; j++) {
+                        //切出的字符串通过模糊搜索如果不是—1,也就是找到了
+                        if (sTr.search(aVl[j]) != -1) {
+                            table.tBodies[0].rows[z].style.background = 'green';
+                            table.tBodies[0].rows[z].style.color = '#fff';
+                        }
+                    }
+                }
+
+            }
+
+            //排序
+            var sort = document.getElementById('sort');
+            sort.onclick = function () {
+                var arr = [];
+                for (var i = 0; i < table.tBodies[0].rows.length; i++) {
+                    arr[i] = table.tBodies[0].rows[i]
+                }
+                //排序方法，年龄
+                arr.sort(function (tr1, tr2) {
+                    var n1 = parseInt(tr1.cells[2].innerHTML);
+                    var n2 = parseInt(tr2.cells[2].innerHTML);
+                    return n1 - n2
+                })
+                for (var j = 0; j < arr.length; j++) {
+                    table.tBodies[0].appendChild(arr[j]);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    姓名：<input type="text" id="name">
+    年龄：<input type="text" id="age">
+    <input type="button" id="btn" value="添加">
+    <input type="button" id="search" value="搜索">
+    <input type="button" id="sort" value="排序">
+    <p id="error" style="display: none;"></p>
+    <table id="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+                <td>23</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>李四</td>
+                <td>45</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>王五</td>
+                <td>34</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>赵六</td>
+                <td>35</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>宋七</td>
+                <td>24</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>周八</td>
+                <td>26</td>
+                <td><a href="javascript:;">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

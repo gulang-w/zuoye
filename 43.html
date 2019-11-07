@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+    //构建一个函数
+        function gClass(parent, className) {
+
+            var arr = [];//设置一个空数组
+            var aElement = parent.getElementsByTagName('*'); //取出所有的元素
+
+            for (var i = 0; i < aElement.length; i++) {
+
+                if (aElement[i].className == className) {
+                    arr.push(aElement[i]);
+                }
+
+            }
+            return arr;
+        }
+        window.onload = function () {
+            var box = document.getElementById('box');
+            var lis = gClass(box, 'red');
+            console.log(lis)
+            for (var j = 0; j < lis.length; j++) {
+                lis[j].style.background = "red"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="box">
+        <li class="red"></li>
+        <li></li>
+        <li></li>
+        <li class="red"></li>
+        <li></li>
+        <li class="red"></li>
+    </ul>
+</body>
+
+</html>

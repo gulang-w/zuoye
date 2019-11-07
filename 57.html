@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #ol1{
+            background: rgb(68, 68, 212);
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var ol1 = document.getElementById('ol1');
+            var btn = document.getElementById('btn');
+            //点击时让每个排在 第一个的放在最后
+            btn.onclick = function() {
+                //把ol1的子节点的第一个保存在Li中
+                var li = ol1.children[0];
+                //appendChild() 方法可向节点的子节点列表的末尾添加新的子节点
+                ol1.appendChild(li);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="移动">
+    <ul id="ol1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+ 
+</body>
+</html>

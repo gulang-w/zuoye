@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            //文档碎片
+            //document.createDocumentFragment()
+            //createdocumentfragment()方法创建了一虚拟的节点对象，节点对象包含所有属性和方法。
+            var box = document.getElementById('box');
+            var fag = document.createDocumentFragment();
+            for(var i = 0; i<100; i++) {
+                 //createElement() 方法通过指定名称创建一个元素
+                var lis = document.createElement('li');
+                fag.appendChild(lis);
+            }
+            box.appendChild(fag)
+        }
+    </script>
+</head>
+
+<body>
+    <ol id="box">
+
+    </ol>
+</body>
+
+</html>

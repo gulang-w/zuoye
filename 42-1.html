@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //首尾子节点（有兼容性问题）
+            //firstChild,  firstChild 属性返回被选节点的第一个子节点。
+            //firstElementChild       指向第一个子元素；firstChild的元素版     获取指定元素下第一个子元素节点
+            //lastChild,     lastChild 属性可返回文档的最后一个子节点。
+            //lastElementChild         可以返回指定元素的最后一个子元素节点
+        //兄弟节点（有兼容性问题）
+            //nextSibling    nextSibling 属性可返回某个元素之后紧跟的节点（处于同一树层级中）。
+            //nextElementSibling     nextElementSibling 属性返回指定元素之后的下一个兄弟元素（相同节点树层中的下一个元素节点）。
+            // nextSibling 属性返回元素节点之后的兄弟节点（包括文本节点、注释节点）；
+            //nextElementSibling 属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）
+            //previousSibling   previousSibling 属性返回同一树层级中指定节点的前一个节点。
+            //previousElementSibling    previousElementSibling 属性返回指定元素的前一个兄弟元素（相同节点树层中的前一个元素节点）。
+            // previousSibling 属性返回元素节点之前的兄弟节点（包括文本节点、注释节点）；
+            // previousElementSibling 属性只返回元素节点之前的兄弟元素节点（不包括文本节点、注释节点）；
+
+        window.onload = function() {
+            var box = document.getElementById('box');
+            var lis = document.getElementsByTagName('li');
+            //首尾子节点    首节点
+            if(!box.firstElementChild) {
+                //IE6-8
+                box.firstChild.style.background = "red"
+            } else {
+                //高级浏览器
+                box.firstElementChild.style.background = "blue"
+            }
+
+
+            //首尾子节点    尾节点
+            if(!box.lastElementChild) {
+                //IE6-8
+                box.lastChild.style.background = "red"
+            } else {
+                //高级浏览器
+                box.lastElementChild.style.background = "yellow"
+            }
+
+            //兄弟节点   下一个节点
+            if(!lis[0].nextElementSibling) {
+                //IE6-8
+                lis[0].nextSibling.style.background = "red";
+            } else {
+                //高级浏览器
+                lis[0].nextElementSibling.style.background = "orange"
+            }
+
+            //兄弟节点   上一个节点
+            if(!lis[5].previousElementSibling) {
+                //IE6-8
+                lis[5].previousSibling.style.background = "red";
+            } else {
+                //高级浏览器
+                lis[5].previousElementSibling.style.background = "black"
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
